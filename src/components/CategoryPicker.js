@@ -18,8 +18,8 @@ const CategoryPicker = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 3,
-      partialVisibilityGutter: 20
+      items: 2,
+      partialVisibilityGutter: 40
     },
   };
   return (
@@ -28,13 +28,13 @@ const CategoryPicker = () => {
         responsive={responsive}
         infinite={true}
         swipeable={true}
-        draggable={true}
-        itemClass=""
-        centerMode
+        itemClass="h-20 flex items-center"
+        partialVisible={true}
+
         removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
       >
         {CATEGORIES.map((category) => (
-          <div className="text-center" key={category.cat}>
+          <div className="w-full text-center" key={category.cat}>
             <Link to={`/category/${category.cat}`} className="text-sm">
             {category.display}
           </Link>

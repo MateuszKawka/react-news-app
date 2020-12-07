@@ -5,12 +5,12 @@ import LastestNews from "../components/LastestNews";
 import NewsListContainer from "../containers/NewsListContainer";
 import { FiChevronLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
+import Spinner from "../components/Spinner";
 const CategoryView = () => {
   const { category } = useParams();
   const [headlines, setHeadlines] = useState([]);
   const [newestNews, setNewestNews] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getHeadlinesNews = async () => {
     setIsLoading(true);
@@ -27,19 +27,28 @@ const CategoryView = () => {
   // eslint-disable-next-line
   useEffect(() => {
     getHeadlinesNews();
+    console.log(isLoading);
     // eslint-disable-next-line
   }, []);
 
   return (
-    <div>
-      <div className="absolute z-20 text-white flex items-center font-semibold p-2">
+    <div className="overflow-y-scroll h-full">
+      <div className="absolute z-20 text-white flex items-center p-2">
         <Link to="/">
           <FiChevronLeft className="text-xl" />
         </Link>
         <p>{category}</p>
       </div>
-      <LastestNews news={newestNews} />
-      <NewsListContainer news={headlines} />
+      <div>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div>
+            <LastestNews news={newestNews} />
+            <NewsListContainer news={headlines} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

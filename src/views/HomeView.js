@@ -20,10 +20,11 @@ const HomeView = () => {
 
   useEffect(() => {
     getHeadlinesNews();
+    // eslint-disable-next-line
   }, [searchQuery]);
 
   return (
-    <div className="">
+    <div className="overflow-y-scroll h-full">
       <div className="py-4 bg-white">
         <div className="flex items-center justify-center w-screen container">
           <SearchInput setSearchQuery={setSearchQuery} />
