@@ -29,7 +29,7 @@ const HomeView = () => {
         <div className="flex items-center justify-center w-screen container">
           <SearchInput setSearchQuery={setSearchQuery} />
         </div>
-        <div className="container"><CategoryPicker /></div>
+        <div className="container mx-auto"><CategoryPicker /></div>
         
         
       </div>

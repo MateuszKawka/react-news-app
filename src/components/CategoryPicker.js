@@ -8,18 +8,18 @@ const CategoryPicker = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
+      items: 12,
       partialVisibilityGutter: 40
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 4,
-      partialVisibilityGutter: 30
+      partialVisibilityGutter: 42
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 2,
-      partialVisibilityGutter: 40
+      partialVisibilityGutter: 36
     },
   };
   return (
@@ -28,9 +28,10 @@ const CategoryPicker = () => {
         responsive={responsive}
         infinite={true}
         swipeable={true}
-        itemClass="h-20 flex items-center"
+        itemClass="h-12 flex items-center"
         partialVisible={true}
-
+        containerClass="mx-auto"
+        sliderClass="mx-auto"
         removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
       >
         {CATEGORIES.map((category) => (
